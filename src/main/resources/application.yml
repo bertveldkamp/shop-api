@@ -1,0 +1,22 @@
+app:
+  aws:
+    sqs-name: product-update
+spring:
+  cloud:
+    aws:
+      region:
+        static: "eu-central-1"
+      credentials:
+        access-key: "${AWS_ACCESS_KEY}"
+        secret-key: "${AWS_SECRET_KEY}"
+  datasource:
+    driver-class-name: "org.postgresql.Driver"
+    host: "${DB_HOST}"
+    port: "5432"
+    database: "${DB_DATABASE}"
+    username: "${DB_USER}"
+    password: "${DB_PASSWORD}"
+    url: "jdbc:postgresql://${spring.datasource.host}:${spring.datasource.port}/${spring.datasource.database}"
+  jpa:
+    hibernate:
+      ddl-auto: update

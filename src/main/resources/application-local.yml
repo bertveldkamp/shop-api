@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: "org.postgresql.Driver"
+    host: "localhost"
+    port: "5432"
+    database: "shop_api"
+    username: "shop_api_user"
+    password: "password1"
+

@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  postgres:
+    container_name: pg_container
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: shop_api_user
+      POSTGRES_PASSWORD: password1
+      POSTGRES_DB: shop_api
+    ports:
+      - "5432:5432"
+  localstack:
+    image: localstack/localstack:latest
+    environment:
+      - SERVICES=sqs
+      - AWS_DEFAULT_REGION=eu-central-1
+      - EDGE_PORT=4566
+    ports:
+      - '4566-4597:4566-4597'
